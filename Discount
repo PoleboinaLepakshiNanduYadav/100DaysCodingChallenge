@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() 
+{
+    int qty,price,amount,dis,total;
+    printf("enter the quantity=");
+    scanf("%d",&qty);
+    printf("enter the price=");
+    scanf("%d",&price);
+    printf("enter the dis=");
+    scanf("%d",&dis);
+    amount=qty*price;
+    dis=amount*dis/100;
+    printf("dis is %d\n",dis);
+    total=amount-dis;
+    printf("total is %d",total);
+    
+    
+    
+    
+    
+    return 0;
+}
