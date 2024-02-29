@@ -1,0 +1,14 @@
+
+#include <stdio.h>
+
+int main() {
+   char num;
+   printf("enter the num value=");
+   scanf("%c",&num);
+   if(num>='a' && num<='z'|| num>='A' && num<='Z' || num>='0' && num<='9')
+   printf("Not a special character");
+   else
+   printf("it's a special character");
+
+    return 0;
+}
