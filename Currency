@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+   int num;
+   printf("enter the num=");
+   scanf("%d",&num);
+   if(num/500!=0)
+   printf("%d-500\n",num/500);num%=500;
+   if(num/200!=0)
+   printf("%d-200\n",num/200);num%=200;
+   if(num/100!=0)
+   printf("%d-100\n",num/100);num%=100;
+   if(num/50!=0)
+   printf("%d-50\n",num/50);num%=50; 
+   if(num/20!=0)
+   printf("%d-20\n",num/20);num%=20;
+   if(num/10!=0)
+   printf("%d-10\n",num/10);num%=10;
+   if(num/5!=0)
+   printf("%d-5\n",num/5);num%=5;
+   if(num/2!=0)
+   printf("%d-2\n",num/2);num%=2;
+   if(num/1!=0)
+   printf("%d-1\n",num/1);num%=1; 
+
+}
