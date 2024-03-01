@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() 
+{
+    int unit;
+    float amount;
+    printf("enter the unit=");
+    scanf("%d",&unit);
+    if(unit<=50)
+    {
+     amount=unit*0.5;
+    }
+    else if(unit<=150)
+    {
+    amount=50*0.5+(unit-50)*0.75;
+    }
+    else if(unit<=250)
+    {
+    amount=50*0.5+100*0.75+(unit-150)*1.20;
+    }
+    else
+    {
+    amount=50*0.5+100*0.75+100*1.20+(unit-250)*1.50;
+    }
+    amount=amount+amount*0.2;
+    printf("Total electricity bill:%.2f",amount);
+    
+    
+    
+    
+}
