@@ -1,0 +1,73 @@
+#include<stdio.h>
+int main()
+{
+    int wheeler,age,p,tyre,Fuel,Engine,General;
+    float bill;
+    printf("enter the wheeler num:");
+    scanf("%d",&wheeler);
+    
+    if(wheeler>=2 && wheeler<=4)
+    {
+    printf("this service center is accepting\n");
+        printf("enter the age of vehicle:");
+        scanf("%d",&age);
+        
+        if(age>8)
+        {
+        printf("we accept the service\n");
+        printf("Enter 1 for tyre problem:\n");
+        printf("Enter 2 for fuel problem:\n");
+        printf("Enter 3 for engine problem:\n");
+        printf("Enter 4 for general services:\n");
+        scanf("%d",&p);
+        }
+        else if(p==1)
+        {
+        printf("how many tyres you are facing the issue:\n");
+        scanf("%d",&tyre);
+        bill=tyre*400;
+        printf("Name of the owener:P.L.Nandu Yadav\n");
+        printf("Name of the bike:Royal Enfield\n");
+        printf("Issue:Tyre\n");
+        printf("the cost of total tyres:%f\n",bill);
+        }
+        else if(p==2)
+        {
+        printf("how many Fuel you are facing the issue:");
+        scanf("%d",&Fuel);
+        bill=Fuel*1500;
+        printf("Name of the owener:P.L.Nandu Yadav");
+        printf("Name of the bike:Royal Enfield");
+        printf("Issue:Fuel");
+        printf("the cost of total Fuel:%f",bill);
+        }
+        else if(p==3)
+        {
+        printf("how many Engine you are facing the issue:");
+        scanf("%d",&Engine);
+        bill=Engine*5000;
+        printf("Name of the owener:P.L.Nandu Yadav");
+        printf("Name of the bike:Royal Enfield");
+        printf("Issue:Engine");
+        printf("the cost of total Engine:%f",bill);
+        }
+        else if(p==4)
+        {
+        printf("how many General Services you are facing the issue:");
+        scanf("%d",& General);
+        bill= General*1000;
+        printf("Name of the owener:P.L.Nandu Yadav");
+        printf("Name of the bike:Royal Enfield");
+        printf("Issue: General Services");
+        printf("the cost of total  General Services:%f",bill);
+        }
+       else 
+       {
+        printf("your vehicle servie will done after a while");
+        }
+    }
+    else
+    {
+    printf("this service center is not accepting");
+    }
+}
