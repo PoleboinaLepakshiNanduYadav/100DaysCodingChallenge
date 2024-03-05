@@ -1,0 +1,108 @@
+#include <stdio.h>
+
+int main()
+{
+    int tea=10,coffee=20,coldcoffee=50,attendent,quantity,change,total,money;
+    char yes;
+    a:
+    printf("Welcome and Menu:");
+    printf("You enter the tea stall, warmly welcomed by the attendant:");
+    printf("Attendant:Welcome to our Tea Stall Counter! Our menu:");
+    printf("Attendant:Choose by entering a number (1-4):");
+    scanf("%d",&attendent);
+    if(attendent>0 && attendent<=3)
+    {
+        printf("Customize Order:");
+        printf("Based on your choice, the attendant guides you:");
+        
+        if(attendent==1)
+        {
+            printf("How many cups of refreshing tea?:");
+            scanf("%d",&quantity);
+            total=quantity*tea;
+            printf("total cost of tea is:%d",total);
+            printf("Enter your payment amount %d",total);
+            printf("Coustemer given money:");
+            scanf("%d",&money);
+            change=money-total;
+            if(change>0){
+            printf("Remaining change is%d",change);
+                
+            }
+            printf("Continuation or Farewell:");
+            printf("Choose to explore more or conclude your visit:");
+            printf("Attendant:Explore more or finalize? (Type 'Y' for Yes or 'N' for No):");
+            scanf(" %c",&yes);
+            if(yes=='y')
+            {
+                printf("Attendant:Certainly, let's explore.\n");
+                goto a;
+            }
+            else
+            {  
+                  printf("Attendant:Thank you for visiting! We look forward to serving you again soon!");
+            }  
+        }
+        else if(attendent==2)
+        {
+            printf("How many cups of refreshing coffe?:");
+            scanf("%d",&quantity);
+            total=quantity*coffee;
+            printf("total cost of tea is:%d",total);
+            printf("Enter your payment amount %d",total);
+            printf("Coustemer given money:");
+            scanf("%d",&money);
+            change=money-total;
+            if(change>0){
+            printf("Remaining change is%d",change);
+                
+            }
+            printf("Continuation or Farewell:");
+            printf("Choose to explore more or conclude your visit:");
+            printf("Attendant:Explore more or finalize? (Type 'Y' for Yes or 'N' for No):");
+            scanf(" %c",&yes);
+            if(yes=='y')
+            {
+                printf("Attendant:Certainly, let's explore.\n");
+                goto a;
+            }
+            else
+            {  
+                  printf("Attendant:Thank you for visiting! We look forward to serving you again soon!");
+            }  
+        }
+        else if(attendent==3)
+        {
+            printf("How many cups of refreshing coldcoffee?:");
+            scanf("%d",&quantity);
+            total=quantity*coldcoffee;
+            printf("total cost of tea is:%d",total);
+            printf("Enter your payment amount %d",total);
+            printf("Coustemer given money:");
+            scanf("%d",&money);
+            change=money-total;
+            if(change>0){
+            printf("Remaining change is%d",change);
+                
+            }
+            printf("Continuation or Farewell:");
+            printf("Choose to explore more or conclude your visit:");
+            printf("Attendant:Explore more or finalize? (Type 'Y' for Yes or 'N' for No):");
+            scanf(" %c",&yes);
+            if(yes=='y')
+            {
+                printf("Attendant:Certainly, let's explore.\n");
+                goto a;
+            }
+            else
+            {  
+                  printf("Attendant:Thank you for visiting! We look forward to serving you again soon!");
+            }  
+        }
+    }
+    else
+    {
+        printf("enter the valid num");
+    }
+
+}
