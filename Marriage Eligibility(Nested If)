@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() 
+{
+    int age; 
+    char nat,gen;
+    printf("enter the Nationality:");
+    scanf(" %c",&nat);
+    if(nat=='I'||nat=='i')
+    {
+        printf("you are an Indian\n");
+        printf("enter your gender:");
+        scanf(" %c",&gen);
+        
+        if(gen='M'&&gen=='m')
+        {
+            printf("enter the age:");
+            scanf("%d",&age);
+            if(age>=21&&age<=50)
+            {
+                printf("Congratulation! you are eligible for marriage.");
+            }
+            else
+            {
+                printf("Sorry! you are not eligible for marriage.");
+            }
+        }
+        
+        else if(gen='M'||gen=='m')
+        {
+            printf("enter the age:\n");
+            scanf("%d",&age);
+            if(age>=18&&age<=45)
+            {
+                printf("Congratulation! you are eligible for marriage.");
+            }
+            else
+            {
+                printf("Sorry! you are not eligible for marriage.");
+            }
+        }
+        
+    }
+    else
+    {
+        printf("you are not an Indian citizen");
+    }
+}
