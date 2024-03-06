@@ -1,0 +1,69 @@
+#include <stdio.h>
+
+int main() 
+{
+    char desig,cat;
+    int Ds,Td,Ms,Tm,ts,Ts,Ha=10000,Fa=3000,Ta=10000,Tts;
+    printf("enter the designation:");
+    scanf(" %c",&desig);
+    if(desig=='d')
+    {
+        printf("Enter the designation:");
+        scanf(" %c",&cat);
+       if(cat=='D')
+       {
+           printf("Enter the salary of Developer:");
+           scanf("%d",&Ds);
+           Td=Ds+Ha;
+           printf("The total budget for Developer is:%d\n",Td);
+           if(Td>=40000)
+           {
+               Tts=Td*0.1;
+               printf("Total salary with tax is:%d\n",Tts);
+           }
+           else if(Td<40000)
+           {
+               Tts=Td*0.05;
+               printf("Total salary with tax is:%d\n",Tts);  
+           }
+       }
+       else if(cat=='T')
+       {
+           printf("Enter the salary of Trainer:");
+           scanf("%d",&ts);
+           Ts=ts+Ha+Fa;
+           printf("The total budget for Trainer is:%d\n",Ts);
+           if(Ts>=40000)
+           {
+               Tts=Ts*0.1;
+               printf("Total salary with tax is:%d\n",Tts);
+           }
+           else if(Ts<40000)
+           {
+               Tts=Ts*0.05;
+               printf("Total salary with tax is:%d\n",Tts);  
+           }
+       }
+       else if(cat=='M')
+       {
+           printf("Enter the salary of Manager:");
+           scanf("%d",&Ms);
+           Tm=Ms+Ha+Fa+Ta;
+           printf("The total budget for Manager is:%d\n",Tm);
+           if(Tm>=40000)
+           {
+               Tts=Tm*0.1;
+               printf("Total salary with tax is:%d\n",Tts);
+           }
+           else if(Tm<40000)
+           {
+               Tts=Tm*0.05;
+               printf("Total salary with tax is:%d\n",Tts);  
+           }
+       }
+    }
+    else
+    {
+        printf("Invalid input");
+    }
+}
