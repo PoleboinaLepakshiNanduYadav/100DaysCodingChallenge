@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+    int num1,num2,total;
+    char num;
+    a:
+    printf("enter the num1:");
+    scanf("%d",&num1);
+    printf("enter the num2:");
+    scanf("%d",&num2);
+    printf("enter the num:");
+    scanf(" %c",&num);
+    switch(num)
+    {
+        case '+':
+        {
+            printf("sum of two num:%d",total=num1+num2);break;
+        }
+         case '-':
+        {
+            printf("sub of two num:%d",total=num1-num2);break;
+        }
+         case '*':
+        {
+            printf("mul of two num:%d",total=num1*num2);break;
+        }
+         case '%':
+        {
+            printf("mod of two num:%d",total=num1%num2);break;
+        }
+         case '/':
+        {
+            printf("div of two num:%d",total=num1/num2);break;
+        }
+        default:
+        printf("enter valid operator\n");
+        goto a;
+    }
+    return 0;
+    
+}
