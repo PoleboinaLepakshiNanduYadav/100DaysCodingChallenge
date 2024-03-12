@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main()
+{
+    float amt,bal,Ta;
+    char trans;
+    a:
+    printf(" 1. Enter d for deposite\n");
+    printf(" 2. enter w for deposite\n");
+    printf(" choose the trans:");
+    scanf(" %c",&trans);
+    switch(trans)
+    {
+        case 'd':
+        {
+            printf(" enter the total balance:");
+            scanf("%f",&bal);
+            printf(" enter the amount:");
+            scanf("%f",&amt);
+            if(amt>0&&amt<100000)
+            {
+            Ta=bal+amt;
+            printf(" Total amount:%f\n",Ta);
+            }
+            else
+            {
+                printf("Invalid num\n");
+            }
+            goto a;
+        }
+         case 'w':
+        {
+            printf(" enter the total balance:");
+            scanf("%f",&bal);
+            printf(" enter the amount:");
+            scanf("%f",&amt);
+            if(bal>0&&bal<100000)
+            {
+            Ta=bal-amt;
+            printf(" balance amount:%f\n",Ta);break;
+            }
+            else
+            {
+                printf("Inalid num\n");
+                
+            }
+            goto a;
+        }
+        default:
+        {
+            printf("Invalid\n");
+        }
+        goto a;
+    }
+}
