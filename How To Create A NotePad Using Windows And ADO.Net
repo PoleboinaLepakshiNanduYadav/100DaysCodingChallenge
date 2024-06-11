@@ -1,0 +1,138 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing.Printing;
+
+namespace WindowsFormsApp2
+{
+    public partial class Form7 : Form
+    {
+        string Fpath, Fname;
+        public Form7()
+        {
+            InitializeComponent();
+        }
+
+       private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "TextDocument|*.txt|AllFiles|*.*";
+            openFileDialog1.ShowDialog();
+            Fpath = openFileDialog1.FileName;
+            rtxt.LoadFile(Fpath, RichTextBoxStreamType.PlainText);
+            Fname = Fpath.Substring(Fpath.LastIndexOf("\\") + 1);
+            Fname = Fname.Substring(0, Fname.Length - 4);
+            this.Text = Fname;
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.Text.Equals("Untitled"))
+                saveAsToolStripMenuItem_Click(sender, e);
+            else
+                rtxt.LoadFile(Fpath, RichTextBoxStreamType.PlainText);
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "TextDocument|*.txt|AllFiles|*.*";
+            saveFileDialog1.ShowDialog();
+            Fpath = saveFileDialog1.FileName;
+            rtxt.SaveFile(Fpath, RichTextBoxStreamType.PlainText);
+            Fname = Fpath.Substring(Fpath.LastIndexOf("\\") + 1);
+            Fname = Fpath.Substring(0,Fpath.Length-4);
+            this.Text = Fname;
+        }
+
+        private void pageSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocument pd = new PrintDocument();
+            pd.DocumentName = Fpath;
+            pageSetupDialog1.Document = pd;
+            pageSetupDialog1.ShowDialog();
+
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocument pd = new PrintDocument();
+            pd.DocumentName = Fpath;
+            printDialog1.Document = pd;
+            printDialog1.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Undo();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Redo();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Copy();
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Cut();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Paste();
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Clear();
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fontDialog1.ShowDialog();
+            rtxt.Font = fontDialog1.Font;
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backcolorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            rtxt.BackColor = colorDialog1.Color;
+        }
+
+        private void forecolorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            rtxt.ForeColor = colorDialog1.Color;
+        }
+
+        private void rtxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtxt.Clear();
+            this.Text = "Untitled";
+        }
+    }
+}
