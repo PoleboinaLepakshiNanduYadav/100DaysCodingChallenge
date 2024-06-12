@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace WindowsFormsApp2
+{
+    public partial class Form8 : Form
+    {
+        string constr,Query;
+        public Form8()
+        {
+            InitializeComponent();
+        }
+
+        private void Form8_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btndel_Click(object sender, EventArgs e)
+        {
+            constr= @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            Query = "Delete Empdetails where EmpId=103";
+            SqlCommand cmd = new SqlCommand(Query,con);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R + "Row(s) Deleted");
+        }
+    }
+}
