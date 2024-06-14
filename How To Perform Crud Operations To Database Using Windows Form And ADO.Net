@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace WindowsFormsApp2
+{
+    public partial class Form10 : Form
+    {
+        public Form10()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            string Query = $"Insert into Empdetails values({txt1.Text},'{txt2.Text}','{txt3.Text}','{txt4.Text}',{txt5.Text},{txt6.Text})";
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R +  "Rows Inserted");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            string Query = $"Update Empdetails set Ename='{txt2.Text}',Designation='{txt3.Text}',DOJ='{txt4.Text}',Salary={txt5.Text},Deptno={txt6.Text} where EmpId={txt1.Text}"; 
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R + "Rows Updated");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            string Query = "Delete Empdetails where EmpId=" + txt1.Text;
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R + "Rows Deleted");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+                if (c is TextBox)
+                    c.Text = "";
+        }
+
+        private void Form10_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
