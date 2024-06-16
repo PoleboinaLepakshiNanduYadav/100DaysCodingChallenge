@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace WindowsFormsApp2
+{
+    public partial class Form14 : Form
+    {
+        public Form14()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            SqlCommand cmd = new SqlCommand("InsertRecp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@pEmpid", SqlDbType.Int);
+            p1.Value = txt1.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pEname", SqlDbType.VarChar,(30));
+            p1.Value = txt2.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pDesignation", SqlDbType.VarChar, (30));
+            p1.Value = txt3.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pDOJ", SqlDbType.Date);
+            p1.Value = txt4.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pSalary", SqlDbType.Money);
+            p1.Value = txt5.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pDeptno", SqlDbType.Int);
+            p1.Value = txt6.Text;
+            cmd.Parameters.Add(p1);
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R + "Rows Inserted");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            SqlCommand cmd = new SqlCommand("UpdateRecp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@pEmpid", SqlDbType.Int);
+            p1.Value = txt1.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pEname", SqlDbType.VarChar, (30));
+            p1.Value = txt2.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pDesignation", SqlDbType.VarChar, (30));
+            p1.Value = txt3.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pDOJ", SqlDbType.Date);
+            p1.Value = txt4.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pSalary", SqlDbType.Money);
+            p1.Value = txt5.Text;
+            cmd.Parameters.Add(p1);
+            p1 = new SqlParameter("@pDeptno", SqlDbType.Int);
+            p1.Value = txt6.Text;
+            cmd.Parameters.Add(p1);
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R + "Rows Updated");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            SqlCommand cmd = new SqlCommand("DelRecp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter p1 = new SqlParameter("@pEmpid", SqlDbType.Int);
+            p1.Value = txt1.Text;
+            cmd.Parameters.Add(p1);
+            con.Open();
+            int R = cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show(R + "Rows Deleted");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+                if (c is TextBox)
+                    c.Text = "";
+        }
+
+        private void Form14_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
