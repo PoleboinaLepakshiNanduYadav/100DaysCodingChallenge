@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace WindowsFormsApp2
+{
+    public partial class Form16 : Form
+    {
+       
+        public Form16()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            SqlConnection con = new SqlConnection(constr);
+            string Query="select*from Empdetails where EmpId=@p1";
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p1", txt1.Text);
+            con.Open();
+            SqlDataReader Dr = cmd.ExecuteReader();
+            if (Dr.Read())
+            {
+                txt2.Text = Dr[01].ToString();
+                txt3.Text = Dr[02].ToString();
+                txt4.Text = Dr[03].ToString();
+                txt5.Text = Dr[04].ToString();
+                txt6.Text = Dr[05].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Search Not Found");
+            }
+            con.Close();
+        }
+
+        private void Form16_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
