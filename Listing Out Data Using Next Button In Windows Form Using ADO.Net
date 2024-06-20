@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace WindowsFormsApp2
+{
+    public partial class Form17 : Form
+    {
+        SqlDataReader Dr;
+        SqlConnection con;
+        public Form17()
+        {
+            InitializeComponent();
+        }
+        private void Form17_Load(object sender, EventArgs e)
+        {
+            string constr = @"server=NANDUYADAV\SQLEXPRESS;user id=sa;password=Lepakshi;database=Employee";
+            con = new SqlConnection(constr);
+            string Query = "select*from Empdetails";
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+             Dr = cmd.ExecuteReader();
+            
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Dr.Read())
+            {
+                txt1.Text = Dr[00].ToString();
+                txt2.Text = Dr[01].ToString();
+                txt3.Text = Dr[02].ToString();
+                txt4.Text = Dr[03].ToString();
+                txt5.Text = Dr[04].ToString();
+                txt6.Text = Dr[05].ToString();
+            }
+            else
+            {
+                button1.Enabled = false;
+                con.Close();
+            }
+        }
+    }
+}
